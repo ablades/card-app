@@ -6,7 +6,7 @@ class Card {
     }
 }
 
-function BuildDeck() {
+function buildDeck() {
     const suites = ["♣", "♦", "♥", "♠"]
     const cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "Q", "K"]
 
@@ -14,13 +14,13 @@ function BuildDeck() {
     suites.forEach((suite) => {cards.forEach((card) => {
         deck.push(new Card(suite, card))
     })})
-
+    
     return deck
 }
 
 
 // Shuffle deck
-function ShuffleDeck(deck) {
+function shuffleDeck(deck) {
     let shuffledDeck = deck.sort(() => Math.random() - 0.5)
 
     return shuffledDeck
@@ -28,7 +28,7 @@ function ShuffleDeck(deck) {
 
 
 // Draw card add to hand and Remove card from deck
-function DrawCard(deck, hand) {
+function drawCard(deck, hand) {
     let index = Math.floor(Math.random()*deck.length);
     let card = deck[index];
     deck.splice(index, 1);
@@ -37,18 +37,16 @@ function DrawCard(deck, hand) {
     return card
 }
 
-// Discard card from hand
-// function DiscardCard(hand, id) {
+function removeCard(hand, index) {
+}
 
-// }
-
-let deck = BuildDeck()
+let deck = buildDeck()
 console.log(deck)
 
-deck = ShuffleDeck(deck)
+deck = shuffleDeck(deck)
 console.log(deck)
 
 let hand = []
 console.log(deck.length)
-let card = DrawCard(deck, hand)
+let card = drawCard(deck, hand)
 console.log(deck.length, hand, card)
