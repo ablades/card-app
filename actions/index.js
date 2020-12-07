@@ -4,7 +4,7 @@ export const NEW_DECK = 'NEW_DECK'
 export const SHUFFLE_DECK = 'SHUFFLE_DECK'
 export const SELECT_CARD = 'SELECT_CARD'
 
-export const buildDeck = () => {
+export const buildDeck = (deck) => {
     return {
         type: NEW_DECK,
         payload: { deck }

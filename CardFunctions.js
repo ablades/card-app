@@ -6,7 +6,7 @@ class Card {
     }
 }
 
-function buildDeck() {
+export const buildDeck = () => {
     const suites = ["♣", "♦", "♥", "♠"]
     const cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "Q", "K"]
 
@@ -18,6 +18,16 @@ function buildDeck() {
     return deck
 }
 
+// Draw card add to hand and Remove card from deck
+export const drawCard = (deck, hand) => {
+    let index = Math.floor(Math.random()*deck.length);
+    let card = deck[index];
+    deck.splice(index, 1);
+    hand.push(card)
+
+    return {card, deck, hand}
+}
+
 
 // Shuffle deck
 function shuffleDeck(deck) {
@@ -26,16 +36,6 @@ function shuffleDeck(deck) {
     return shuffledDeck
 }
 
-
-// Draw card add to hand and Remove card from deck
-function drawCard(deck, hand) {
-    let index = Math.floor(Math.random()*deck.length);
-    let card = deck[index];
-    deck.splice(index, 1);
-    hand.push(card)
-
-    return card
-}
 
 function removeCard(hand, index) {
 }
