@@ -22,17 +22,16 @@ const playingCardsReducer = ( state = defaultState, action) => {
     switch(action.type) {
         case NEW_DECK:
             let newDeck = buildDeck()
-
             return {...state, deck: newDeck}
 
         case SHUFFLE_DECK:
             // Shuffle the deck
-            shuffDeck = shuffleDeck(deck)
+            let shuffDeck = shuffleDeck(deck)
             return {...state, deck:shuffDeck}
 
         case DRAW_CARD:
-
-        const {card, updatedDeck, updatedHand} = drawCard(deck, hand)
+            
+            const {card, updatedDeck, updatedHand} = drawCard(deck, hand)
             return {...state, deck:updatedDeck, hand:updatedHand, card}
         
         default:

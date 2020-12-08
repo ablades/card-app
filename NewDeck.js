@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet, FlatList, Button } from 'react-native'
 import { buildDeck } from './actions'
 
-/*
 function Card({ card }) {
 	return (
         <View>
@@ -11,7 +10,7 @@ function Card({ card }) {
         </View>
 	);
 }
-
+/*
 class CardClass {
     constructor(suite, card) {
         this.suite = suite
@@ -24,7 +23,28 @@ class CardClass {
 // playingCards = name of reducer
 // state.playingCards.deck
 export default function NewDeck() {
-
+    const dispatch = useDispatch()
+    const deck = useSelector((state) => state.playingCards.deck)
+    return (
+        <SafeAreaView>
+            <Text>Test</Text>
+            <View>
+                
+                <Button title="testbutton" onPress={() => {
+                        dispatch(buildDeck(deck));
+                    }}/>
+                <FlatList 
+                    numColumns={4}
+                    data={deck}
+                    renderItem={({ item }) => {
+                        return <Card card={item} />
+                    }}
+                    keyExtractor={item => `${item.suite}${item.card}`}
+                >
+                </FlatList>
+            </View>
+        </SafeAreaView>
+    )
 
     /* const dispatch = useDispatch()
 

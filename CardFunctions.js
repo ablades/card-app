@@ -10,12 +10,12 @@ export const buildDeck = () => {
     const suites = ["♣", "♦", "♥", "♠"]
     const cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "J", "Q", "K"]
 
-    let deck = []
-    suites.forEach((suite) => {cards.forEach((card) => {
-        deck.push(new Card(suite, card))
+    let newDeck = []
+    suites.forEach((suite) => {cards.forEach((value) => {
+        newDeck.push(new Card(suite, value))
     })})
     
-    return deck
+    return newDeck
 }
 
 // Draw card add to hand and Remove card from deck
