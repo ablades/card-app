@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet, FlatList, Button } from 'react-native'
 import { buildDeck } from './actions'
 
+
 function Card({ card }) {
 	return (
         <View>
@@ -22,14 +23,13 @@ class CardClass {
 
 // playingCards = name of reducer
 // state.playingCards.deck
-export default function NewDeck() {
+export default function NewDeck({ route, navigation }) {
     const dispatch = useDispatch()
     const deck = useSelector((state) => state.playingCards.deck)
     return (
-        <SafeAreaView>
+
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Test</Text>
-            <View>
-                
                 <Button title="testbutton" onPress={() => {
                         dispatch(buildDeck(deck));
                     }}/>
@@ -43,7 +43,6 @@ export default function NewDeck() {
                 >
                 </FlatList>
             </View>
-        </SafeAreaView>
     )
 
     /* const dispatch = useDispatch()
